@@ -29,6 +29,7 @@ var toolTip = d3.select('body')
 	.style('padding', '0 10px')
 	.style('background', '#fff')
 	.style('opacity', 0)
+	.style('font-family', 'Open Sans')
 	.style('z-index', 1000);
 
 
@@ -50,7 +51,7 @@ d3.json('js/json/poverty/us.json', function(error, usa){
             .attr('id', function(d) { return d.id; })
             .attr("class", "states states-hover")
             .attr('d', path)
-     
+
 
          //add Tool Tip
          .on('mouseover', function(d, i){
@@ -96,6 +97,13 @@ d3.json('js/json/poverty/us.json', function(error, usa){
 			}) //sort
 		) //data
 		.enter().append("circle") 
+		.on('mouseover', function(d, i){
+			d3.select(this).attr('class', 'hover')
+		})
+		.on('mouseout', function(d, i){
+			d3.select(this).attr('class', '')
+		})
+
 		.attr("transform", function(d) { 
 			return "translate(" + path.centroid(d) + ")"; //Computes the projected centroid (in pixels) for the specified feature
 		})

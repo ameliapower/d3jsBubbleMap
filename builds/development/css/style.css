@@ -10,3 +10,4 @@ h1{font: small-caps 300 2em/1.5em 'Open Sans', sans-serif; text-align: center;ma
 }
 .states{fill: #aec7e8;}
 .bubble{fill:red; fill-opacity: .5;}
+.hover{stroke:#666; fill-opacity: .8;}
